@@ -1,0 +1,20 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = LF
+indent_style = space
+indent_size = 2
+charset = utf-8
+trim_trailing_whitespace = all
+insert_final_newline = true
+
+[*.{jade,pug,styl,stylus}]
+indent_style = tab
+indent_size = 4
+
+[*.{jade,pug}]
+trim_trailing_whitespace = false

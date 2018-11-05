@@ -1,0 +1,24 @@
+html
+body
+	padding 0
+	height 100%
+
+html
+	font-size 62.5% // 10px
+	font-family $base-font-family
+
+body
+	font-size $base-font-size
+	line-height 1.618
+	color $base-text-color
+	background-color $base-background-color
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing grayscal
+
+@media (max-width: 684px)
+	body
+		font-size $base-font-size * 0.85
+
+@media (max-width: 382px)
+	body
+		font-size $base-font-size * 0.75
