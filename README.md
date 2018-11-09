@@ -1,4 +1,4 @@
-# Nano-T.css
+# Nano-t.css
 
 _Nano typographic framework_
 
