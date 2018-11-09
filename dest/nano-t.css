@@ -207,11 +207,6 @@ code {
   font-size: 0.9em;
   padding: 0 0.5em;
 }
-pre > code {
-  padding: 0;
-  background-color: transparent;
-  white-space: pre;
-}
 table {
   text-align: justify;
   width: 100%;
