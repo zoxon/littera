@@ -4,7 +4,7 @@ _Nano typographic framework_
 
 ## Demo
 
-[zoxon.github.io/nano-t](http://zoxon.github.io/nano-t/)
+[zoxon.github.io/nano-t](http://zoxon.github.io/nano-t.css/)
 
 ## Core features
 
