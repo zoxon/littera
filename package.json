@@ -22,9 +22,14 @@
     "url": "https://github.com/zoxon/nano-t.css/issues"
   },
   "lint-staged": {
-    "*.{js,json,css,md,markdown}": [
-      "prettier --write",
-      "git add"
+    "linters": {
+      "*.{js,json,css,md,markdown}": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "**/*.min.{css,js}"
     ]
   },
   "engines": {
