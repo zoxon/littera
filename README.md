@@ -1,6 +1,6 @@
 # Nano-T.css
 
-_Nano typographic framwork_
+_Nano typographic framework_
 
 ## Demo
 
@@ -8,7 +8,21 @@ _Nano typographic framwork_
 
 ## Core features
 
+- Work with normalize.css
+- Less than 3Kb
+- Configurable using [stylus](http://stylus-lang.com/) and [postcss](https://postcss.org/)
+
 ## Quickstart
+
+```html
+<link href="nano-t.css/dest/nano-t.css" rel="stylesheet">
+
+or
+
+<style>
+@import url('nano-t.css/dest/nano-t.css');
+</style>
+```
 
 ## License
 
