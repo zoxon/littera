@@ -1,10 +1,10 @@
-# Nano-t.css
+# Littera
 
 _Nano typographic framework_
 
 ## Demo
 
-[zoxon.github.io/nano-t](http://zoxon.github.io/nano-t.css/)
+[zoxon.github.io/littera](http://zoxon.github.io/littera/)
 
 ## Core features
 
@@ -15,12 +15,12 @@ _Nano typographic framework_
 ## Quickstart
 
 ```html
-<link href="nano-t.css/dest/nano-t.css" rel="stylesheet">
+<link href="littera/dest/littera.css" rel="stylesheet">
 
 or
 
 <style>
-@import url('nano-t.css/dest/nano-t.css');
+@import url('littera/dest/littera.css');
 </style>
 ```
 
