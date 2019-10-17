@@ -12,19 +12,40 @@
     />
     <link rel="stylesheet" href="./dest/littera.css" />
     <style>
-      .content {
+      .container {
         max-width: 43em;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin: 0 auto;
+      }
+
+      .content {
         padding: 1em;
-        margin: auto;
       }
 
       .header {
         text-align: center;
         margin-bottom: 2em;
+        padding-top: 2.5em;
+        padding-bottom: 2.5em;
       }
 
       .logo__name {
         font-size: 3.5em;
+        display: inline-flex;
+        align-items: flex-end;
+      }
+
+      .logo__version {
+        display: inline-block;
+        font-size: 16px;
+        vertical-align: baseline;
+        background-color: var(--link-color);
+        color: var(--base-background-color);
+        padding: 0.25em;
+        border-radius: 0.25em;
+        margin-left: 0.5em;
+        margin-bottom: 0.8em;
       }
 
       .footer {
@@ -48,7 +69,7 @@
         text-indent: -999999px;
       }
 
-      .github-fork-ribbon.fixed {
+      .github-fork-ribbon_fixed {
         position: fixed;
       }
 
@@ -97,7 +118,7 @@
 
   <body>
     <a
-      class="github-fork-ribbon right-top fixed"
+      class="github-fork-ribbon"
       href="https://github.com/simonwhitaker/github-fork-ribbon-css"
       data-ribbon="Fork me on GitHub"
       title="Fork me on GitHub"
@@ -105,14 +126,17 @@
       Fork me on GitHub
     </a>
 
-    <header class="header">
+    <header class="header container">
       <div href="#" class="logo header__logo">
-        <h1 class="logo__name">Littera</h1>
+        <h1 class="logo__name">
+          Littera
+          <span class="logo__version">v. 1.1.0</span>
+        </h1>
         <div class="logo__description">Nano typographic framework</div>
       </div>
     </header>
 
-    <main class="content content-wrapper">
+    <main class="container content content-wrapper">
       <h2 id="titles-and-paragraphs">Titles &amp; Paragraphs</h2>
       <p>
         Lorem ipsum dolor sit amet,
