@@ -21,15 +21,16 @@
   "bugs": {
     "url": "https://github.com/zoxon/littera/issues"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "cross-env PRE_COMMIT=true lint-staged",
+      "pre-push": "npm test"
+    }
+  },
   "lint-staged": {
-    "linters": {
-      "*.{js,json,css,md,markdown}": [
-        "prettier --write",
-        "git add"
-      ]
-    },
-    "ignore": [
-      "**/*.min.{css,js}"
+    "*.{js,json,css,md,markdown}": [
+      "prettier --write",
+      "git add"
     ]
   },
   "engines": {
@@ -37,7 +38,6 @@
     "npm": "~3.0.0"
   },
   "scripts": {
-    "precommit": "lint-staged",
     "clean:dest": "rimraf ./dest",
     "clean": "npm-run-all clean:*",
     "mkdir:dest": "mkdirp ./dest",
@@ -57,10 +57,10 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.3.1",
-    "cross-env": "^5.2.0",
+    "cross-env": "^6.0.3",
     "cssnano": "^4.1.7",
-    "husky": "^1.1.3",
-    "lint-staged": "^8.0.4",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
     "mkdirp": "^0.5.1",
     "npm-run-all": "^4.1.3",
     "perfectionist": "^2.4.0",
@@ -69,7 +69,7 @@
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-reporter": "^6.0.0",
     "prettier": "^1.14.3",
-    "rimraf": "^2.6.2",
+    "rimraf": "^3.0.0",
     "stylus": "^0.54.5"
   }
 }
