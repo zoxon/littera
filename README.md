@@ -1,6 +1,14 @@
-# Littera
+<p align="center">
+  <img src="./logo.svg" width="92" height="170" alt="Littera" />
+</p>
 
-_Nano typographic framework_
+<h1 align="center">
+  Littera
+</h1>
+
+<p align="center">
+  <em>Nano typographic framework</em>
+</p>
 
 ## Demo
 
@@ -15,12 +23,12 @@ _Nano typographic framework_
 ## Quickstart
 
 ```html
-<link href="littera/dest/littera.css" rel="stylesheet">
+<link href="littera/dest/littera.css" rel="stylesheet" />
 
 or
 
 <style>
-@import url('littera/dest/littera.css');
+  @import url("littera/dest/littera.css");
 </style>
 ```
 
