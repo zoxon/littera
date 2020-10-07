@@ -52,8 +52,7 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "normalize.css": "^8.0.0",
-    "open-color": "^1.6.3"
+    "normalize.css": "^8.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.3.1",
