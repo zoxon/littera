@@ -1,0 +1,26 @@
+a {
+  color: var(--link-color);
+  text-decoration: underline;
+  transition: 125ms color ease-out;
+
+  /* https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  -ms-word-break: break-all;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+a:visited {
+  color: var(--link-color-visited);
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: var(--link-color-active);
+  text-decoration: none;
+}
