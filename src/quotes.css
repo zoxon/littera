@@ -1,0 +1,29 @@
+blockquote {
+  font-style: italic;
+  margin: 1em;
+  padding-left: 1em;
+  border-left: 3px solid var(--text-gray);
+}
+
+blockquote p:last-child,
+blockquote ul:last-child,
+blockquote ol:last-child {
+  margin-bottom: 0;
+}
+
+blockquote p:first-child,
+blockquote ul:first-child,
+blockquote ol:first-child {
+  margin-top: 0;
+}
+
+blockquote footer,
+blockquote small {
+  display: block;
+  font-size: 80%;
+}
+
+blockquote footer:before,
+blockquote small:before {
+  content: "\2014 \00A0";
+}
