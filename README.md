@@ -16,9 +16,9 @@
 
 ## Core features
 
-- Work with normalize.css
-- Less than 3Kb
-- Configurable using [stylus](http://stylus-lang.com/) and [postcss](https://postcss.org/)
+- Work with [normalize.css](https://github.com/necolas/normalize.css)
+- ~3407 bytes (1324 bytes gzipped)
+- Vanilla CSS with minimal [postcss](https://postcss.org/) plugins
 
 ## Quickstart
 
