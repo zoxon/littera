@@ -1,5 +1,5 @@
 {
-  "name": "littera",
+  "name": "@zoxon/littera",
   "version": "2.0.0",
   "main": "dest/littera.css",
   "description": "Nano typograpic framework",
