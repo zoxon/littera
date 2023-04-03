@@ -23,14 +23,39 @@
 ## Quickstart
 
 ```html
+<link href="littera/dest/root.css" rel="stylesheet" />
 <link href="littera/dest/littera.css" rel="stylesheet" />
 
 or
 
 <style>
+  @import url("littera/dest/root.css");
   @import url("littera/dest/littera.css");
 </style>
 ```
+
+You can customize fonts and colors using following custom properties
+
+### Font
+
+- `--font-primary` - font family for all text
+- `--font-mono` - mono font family
+- `--font-size-md` - base font size
+- `--line-height` - base line height
+- `--font-accent` - headings font
+
+### Fill
+
+- `--fill-primary` - base background color
+
+### Text colors
+
+- `--text-primary` - all text font color
+- `--text-accent-primary` - font color for accent elements (like links, buttons etc.)
+- `--text-accent-secondary` - secondary font color for accent elements
+- `--text-accent-tertiary` - tertiary font color for accent elements
+- `--text-gray` - light grey color
+- `--text-gray-dark` - dark grey color
 
 ## License
 
