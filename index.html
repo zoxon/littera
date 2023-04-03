@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"
     />
+    <link rel="stylesheet" href="./dest/root.min.css" />
     <link rel="stylesheet" href="./dest/littera.min.css" />
     <style>
       .container {
@@ -40,8 +41,8 @@
         display: inline-block;
         font-size: 16px;
         vertical-align: baseline;
-        background-color: var(--link-color);
-        color: var(--base-background-color);
+        background-color: var(--text-accent-primary);
+        color: var(--fill-primary);
         padding: 0.25em;
         border-radius: 0.25em;
         margin-left: 0.5em;
@@ -54,78 +55,10 @@
         color: #495057;
         margin: 2em 1em;
       }
-
-      .github-fork-ribbon {
-        width: 12.1em;
-        height: 12.1em;
-        position: absolute;
-        overflow: hidden;
-        top: 0;
-        right: 0;
-        z-index: 9999;
-        pointer-events: none;
-        font-size: 13px;
-        text-decoration: none;
-        text-indent: -999999px;
-      }
-
-      .github-fork-ribbon_fixed {
-        position: fixed;
-      }
-
-      .github-fork-ribbon:hover,
-      .github-fork-ribbon:active {
-        background-color: rgba(0, 0, 0, 0);
-      }
-
-      .github-fork-ribbon:before,
-      .github-fork-ribbon:after {
-        position: absolute;
-        display: block;
-        width: 15.38em;
-        height: 1.54em;
-        top: 3.23em;
-        right: -3.23em;
-        -webkit-box-sizing: content-box;
-        box-sizing: content-box;
-        -webkit-transform: rotate(45deg);
-        transform: rotate(45deg);
-      }
-
-      .github-fork-ribbon:before {
-        content: "";
-        padding: 0.38em 0;
-        background-color: #4263eb;
-        -webkit-box-shadow: 0 0.15em 0.23em 0 rgba(0, 0, 0, 0.5);
-        box-shadow: 0 0.15em 0.23em 0 rgba(0, 0, 0, 0.5);
-        pointer-events: auto;
-      }
-
-      .github-fork-ribbon:after {
-        content: attr(data-ribbon);
-        color: #fff;
-        font: 700 1em "Helvetica Neue", Helvetica, Arial, sans-serif;
-        line-height: 1.54em;
-        text-decoration: none;
-        text-shadow: 0 -0.08em rgba(0, 0, 0, 0.5);
-        text-align: center;
-        text-indent: 0;
-        padding: 0.15em 0;
-        margin: 0.15em 0;
-      }
     </style>
   </head>
 
   <body>
-    <a
-      class="github-fork-ribbon"
-      href="https://github.com/zoxon/littera"
-      data-ribbon="Fork me on GitHub"
-      title="Fork me on GitHub"
-    >
-      Fork me on GitHub
-    </a>
-
     <header class="header container">
       <div href="#" class="logo header__logo">
         <h1 class="logo__name">
@@ -516,7 +449,9 @@ export  $initHighlight;
     </main>
 
     <div class="footer">
-      <a href="https://github.com/zoxon/littera">Project source on github.com</a>
+      <a href="https://github.com/zoxon/littera"
+        >Project source on github.com</a
+      >
       <div class="footer__copyright">&copy;&nbsp;2018 Velichko Konstantin</div>
     </div>
   </body>

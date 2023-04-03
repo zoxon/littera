@@ -46,12 +46,12 @@ code {
 }
 
 kbd {
-  background-color: var(--base-text-color);
+  background-color: var(--text-primary);
   color: #fff;
 }
 
 mark {
-  background-color: var(--link-color);
+  background-color: var(--text-accent-primary);
   color: #fff;
 }
 

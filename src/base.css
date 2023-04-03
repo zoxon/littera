@@ -5,27 +5,15 @@ body {
 }
 
 html {
-  font-size: 62.5%; /* 10px */
-  font-family: var(--base-font-family);
+  font-family: var(--font-primary);
+  font-size: 10px;
 }
 
 body {
-  font-size: var(--base-font-size);
+  font-size: var(--font-size-md);
   line-height: 1.618;
-  color: var(--base-text-color);
-  background-color: var(--base-background-color);
+  color: var(--text-primary);
+  background-color: var(--fill-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscal;
-}
-
-@media (max-width: 684px) {
-  body {
-    font-size: calc(var(--base-font-size) * 0.85);
-  }
-}
-
-@media (max-width: 382px) {
-  body {
-    font-size: calc(var(--base-font-size) * 0.75);
-  }
 }
