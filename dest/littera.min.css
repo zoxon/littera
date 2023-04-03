@@ -1,4 +1,4 @@
-/* ! Littera v3.0.0 | MIT License | github.com/zoxon/littera */
+/* ! Littera v3.0.1 | MIT License | github.com/zoxon/littera */
 body,
 html {
   height: 100%;
@@ -6,7 +6,6 @@ html {
 }
 html {
   font-family: var(--font-primary);
-  font-size: 10px;
 }
 body {
   -webkit-font-smoothing: antialiased;
