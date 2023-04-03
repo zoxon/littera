@@ -8,7 +8,7 @@
     monospace;
 
   /* Font */
-  --font-size-md: 1.6rem;
+  --font-size-md: 1.125rem;
   --line-height: 1.618;
   --font-accent: var(--font-primary);
 
@@ -22,4 +22,16 @@
   --text-accent-tertiary: #3b5bdb;
   --text-gray: #e9ecef;
   --text-gray-dark: #adb5bd;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fill-primary: hsl(210, 20%, 15%);
+    --text-primary: hsl(0, 0%, 90%);
+    --text-accent-primary: hsl(228, 81%, 70%);
+    --text-accent-secondary: hsl(288, 54%, 60%);
+    --text-accent-tertiary: hsl(228, 69%, 60%);
+    --text-gray: hsl(210, 16%, 20%);
+    --text-gray-dark: hsl(210, 11%, 30%);
+  }
 }
