@@ -31,10 +31,6 @@
       "git add"
     ]
   },
-  "engines": {
-    "node": ">=6.0.0",
-    "npm": "~3.0.0"
-  },
   "scripts": {
     "clean": "npm-run-all clean:*",
     "clean:dest": "rimraf ./dest",
@@ -52,20 +48,18 @@
     "lint-staged": "cross-env-shell PRE_COMMIT=true lint-staged"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.7",
+    "autoprefixer": "^10.4.14",
     "cross-env": "^7.0.3",
-    "cssnano": "^5.1.12",
-    "lint-staged": "^13.0.3",
-    "mkdirp": "^1.0.4",
+    "cssnano": "^6.0.0",
+    "lint-staged": "^13.2.0",
+    "mkdirp": "^2.1.6",
     "normalize.css": "^8.0.1",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.14",
-    "postcss-cli": "^10.0.0",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-import": "^14.1.0",
-    "postcss-reporter": "^7.0.5",
-    "prettier": "^2.7.1",
-    "rimraf": "^3.0.2",
-    "simple-git-hooks": "^2.8.0"
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "prettier": "^2.8.7",
+    "rimraf": "^4.4.1",
+    "simple-git-hooks": "^2.8.1"
   }
 }

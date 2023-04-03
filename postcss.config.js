@@ -1,14 +1,6 @@
 module.exports = (ctx) => {
   const config = {
-    plugins: [
-      require("postcss-import"),
-      require("autoprefixer")({
-        flexbox: "no-2009",
-        cascade: false,
-        grid: true,
-      }),
-      require("postcss-flexbugs-fixes"),
-    ],
+    plugins: [require("postcss-import"), require("autoprefixer")],
   };
 
   if (ctx.env === "production") {
@@ -18,8 +10,6 @@ module.exports = (ctx) => {
       })
     );
   }
-
-  config.plugins.push(require("postcss-reporter"));
 
   return config;
 };

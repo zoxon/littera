@@ -17,7 +17,7 @@
 ## Core features
 
 - Work with [normalize.css](https://github.com/necolas/normalize.css)
-- ~3407 bytes (1324 bytes gzipped)
+- ~2593 bytes (gzipped size: 991 bytes)
 - Vanilla CSS with minimal [postcss](https://postcss.org/) plugins
 
 ## Quickstart
