@@ -1,76 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Littera demo</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"
-    />
-    <link rel="stylesheet" href="./dest/root.min.css" />
-    <link rel="stylesheet" href="./dest/littera.min.css" />
-    <style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Littera v4.0.0 - Nano Typographic Framework</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="./dist/littera.min.css" />
+  <style>
+    :root {
+      --max-width: 65ch;
+      --spacing: 1.5rem;
+      --border-radius: 4px;
+    }
+
+    [data-theme="dark"] {
+      --fill-primary: hsl(210, 20%, 15%);
+      --fill-secondary: hsl(210, 20%, 20%);
+      --text-primary: hsl(0, 0%, 90%);
+      --text-accent-primary: hsl(228, 81%, 70%);
+      --text-accent-secondary: hsl(288, 54%, 60%);
+      --text-accent-tertiary: hsl(228, 69%, 60%);
+      --text-gray: hsl(210, 16%, 20%);
+      --text-gray-dark: hsl(210, 11%, 30%);
+    }
+
+    [data-theme="light"] {
+      --fill-primary: #fff;
+      --fill-secondary: #e9ecef;
+      --text-primary: #212529;
+      --text-accent-primary: #4263eb;
+      --text-accent-secondary: #9c36b5;
+      --text-accent-tertiary: #3b5bdb;
+      --text-gray: #e9ecef;
+      --text-gray-dark: #adb5bd;
+    }
+
+    body {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--max-width));
+      margin-inline: auto;
+      padding-block: var(--spacing);
+    }
+
+    @media (max-width: 768px) {
       .container {
-        max-width: 43em;
-        padding-left: 1em;
-        padding-right: 1em;
-        margin: 0 auto;
+        padding-block: 1rem;
+      }
+    }
+
+    .header {
+      text-align: center;
+      padding-block: calc(var(--spacing) * 2);
+      border-bottom: 1px solid var(--text-gray);
+    }
+
+    .header__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .logo {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .logo__name {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 0;
+    }
+
+    .logo__version {
+      font-size: 0.8rem;
+      background: var(--text-accent-primary);
+      color: white;
+      padding: 0.25em 0.5em;
+      border-radius: var(--border-radius);
+      align-self: center;
+    }
+
+    .main-menu {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      .main-menu {
+        gap: 1rem;
+      }
+    }
+
+    .main-menu__item,
+    .main-menu__item:visited {
+      text-decoration: none;
+      color: var(--text-accent-primary);
+    }
+
+    .main-menu__item:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      text-align: center;
+      padding: var(--spacing);
+      border-top: 1px solid var(--text-gray);
+      font-size: 0.9rem;
+    }
+
+    /* Swatches */
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .swatch {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .swatch::before {
+      content: '';
+      background: var(--color);
+      height: 100px;
+      border-radius: 0.25rem;
+      border: 1px solid var(--text-gray);
+      width: 100%;
+    }
+
+    .swatch__label {
+      padding: 0.75rem;
+      font-size: 0.8em;
+      font-family: var(--font-monospace);
+      word-break: break-word;
+      color: var(--text-primary);
+    }
+
+    /* Dark mode адаптация для swatches */
+    @media (prefers-color-scheme: dark) {
+      .swatch {
+        border-color: var(--text-gray-dark);
+      }
+    }
+
+    .theme-switcher {
+      background-color: var(--fill-secondary);
+      border-radius: 10px;
+      display: flex;
+      padding: 0 3px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      width: 320px;
+
+      .slider {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        width: calc((100% - 6px) / 3);
+        top: 3px;
+        transform: translatex(-110%);
+        bottom: 3px;
+        border-radius: 6px;
+        transition: 0.15s ease, transform 0.25s ease-out;
+        background-color: var(--fill-primary);
+        box-shadow: inset 0 1px 1px var(--text-gray), 0 2px 3px var(--text-gray-dark);
       }
 
-      .content {
-        padding: 1em;
+      input {
+        display: none;
+
+        &:nth-of-type(1):checked~.slider {
+          transform: translateX(0);
+        }
+
+        &:nth-of-type(2):checked~.slider {
+          transform: translateX(100%);
+        }
+
+        &:nth-of-type(3):checked~.slider {
+          transform: translateX(200%);
+        }
       }
 
-      .header {
-        text-align: center;
-        margin-bottom: 2em;
-        padding-top: 2.5em;
-        padding-bottom: 2.5em;
-      }
+      label {
+        position: relative;
+        z-index: 2;
+        width: calc(100% / 3);
+        color: var(--text-primary);
 
-      .logo__name {
-        font-size: 3.5em;
-        display: inline-flex;
-        align-items: flex-end;
-      }
+        span {
+          padding: 8px 0;
+          border-radius: 6px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: 500;
+        }
 
-      .logo__version {
-        display: inline-block;
-        font-size: 16px;
-        vertical-align: baseline;
-        background-color: var(--text-accent-primary);
-        color: var(--fill-primary);
-        padding: 0.25em;
-        border-radius: 0.25em;
-        margin-left: 0.5em;
-        margin-bottom: 0.8em;
+        svg {
+          display: inline-block;
+          margin-right: 0.5rem;
+          width: 20px;
+        }
       }
+    }
+  </style>
+</head>
 
-      .footer {
-        font-size: 80%;
-        text-align: center;
-        color: #495057;
-        margin: 2em 1em;
-      }
-    </style>
-  </head>
-
-  <body>
-    <header class="header container">
-      <div href="#" class="logo header__logo">
+<body>
+  <header class="header">
+    <div class="header__container container">
+      <div class="logo">
         <h1 class="logo__name">
           Littera
-          <span class="logo__version">v3.0.1</span>
+          <span class="logo__version">v4.0.0</span>
         </h1>
-        <div class="logo__description">Nano typographic framework</div>
+        <p class="logo__description">Nano typographic framework</p>
       </div>
-    </header>
 
-    <main class="container content content-wrapper">
-      <h2 id="titles-and-paragraphs">Titles &amp; Paragraphs</h2>
+      <nav class="main-menu" aria-label="Page sections">
+        <a class="main-menu__item" href="#swatches">Swatches</a>
+        <a class="main-menu__item" href="#typography">Typography</a>
+        <a class="main-menu__item" href="#lists">Lists</a>
+        <a class="main-menu__item" href="#tables">Tables</a>
+        <a class="main-menu__item" href="#code">Code</a>
+        <a class="main-menu__item" href="#quotes">Quotes</a>
+        <a class="main-menu__item" href="#elements">Elements</a>
+      </nav>
+
+      <div class="theme-switcher">
+        <input type="radio" id="system-theme" name="themes" checked />
+        <label for="system-theme">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-zap">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            Auto
+          </span>
+        </label>
+        <input type="radio" id="light-theme" name="themes" />
+        <label for="light-theme">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-sun">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            Light
+          </span>
+        </label>
+        <input type="radio" id="dark-theme" name="themes" />
+        <label for="dark-theme">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-moon">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            Dark
+          </span>
+        </label>
+        <span class="slider"></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="swatches">
+      <h2>Color Swatches</h2>
+      <div class="swatches">
+        <div class="swatch" style="--color: var(--text-primary);">
+          <div class="swatch__label">--text-primary</div>
+        </div>
+        <div class="swatch" style="--color: var(--text-accent-primary);">
+          <div class="swatch__label">--text-accent-primary</div>
+        </div>
+        <div class="swatch" style="--color: var(--text-accent-secondary);">
+          <div class="swatch__label">--text-accent-secondary</div>
+        </div>
+        <div class="swatch" style="--color: var(--text-accent-tertiary);">
+          <div class="swatch__label">--text-accent-tertiary</div>
+        </div>
+        <div class="swatch" style="--color: var(--text-gray);">
+          <div class="swatch__label">--text-gray</div>
+        </div>
+        <div class="swatch" style="--color: var(--text-gray-dark);">
+          <div class="swatch__label">--text-gray-dark</div>
+        </div>
+        <div class="swatch" style="--color: var(--fill-primary);">
+          <div class="swatch__label">--fill-primary</div>
+        </div>
+        <div class="swatch" style="--color: var(--fill-secondary);">
+          <div class="swatch__label">--fill-secondary</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="typography">
+      <h2>Titles & Paragraphs</h2>
       <p>
         Lorem ipsum dolor sit amet,
         <a href="#">consectetur adipisicing</a> elit. Ex odio eligendi officia
@@ -232,8 +485,10 @@
         voluptates officia quisquam quos beatae culpa rem architecto, deserunt
         officiis dicta iste accusamus ducimus doloremque minima nam!
       </p>
+    </section>
 
-      <h2 id="lists">Lists</h2>
+    <section id="lists">
+      <h2>Lists</h2>
       <ul>
         <li>Proin gravida nibh vel velit auctor aliquet</li>
         <li>
@@ -296,7 +551,8 @@
         <li>Yorquent per conubia nostra, per inceptos himenaeos.</li>
         <li>Mauris in erat justo.</li>
       </ol>
-      <h2 id="description-lists">Description lists</h2>
+
+      <h2>Description lists</h2>
       <dl>
         <dt>Description lists</dt>
         <dd>
@@ -307,102 +563,10 @@
         <dt>This is a term</dt>
         <dd>This is a description.</dd>
       </dl>
+    </section>
 
-      <h2 id="quotes">Quotes</h2>
-      <blockquote>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam.
-        </p>
-        <footer><cite>Someone famous</cite></footer>
-      </blockquote>
-
-      <h2 id="code">Code</h2>
-      <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8" /&gt;
-  &lt;title&gt;Sample document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque architecto eius nemo voluptatem assumenda, impedit adipisci beatae modi hic nostrum natus fugiat illo rem quia, consequuntur blanditiis tempora nihil. Voluptatibus.&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-      <pre
-        class="code"
-      ><code class="code__container code_lang_javascript">function $initHighlight(block, cls) {
-  try {
-    if (cls.search(/\bno\-highlight\b/) != -1)
-      return process(block, true, 0x0F) +
-            ` class=&quot;${cls}&quot;`;
-  } catch (e) {
-    /* handle exception */
-  }
-  for (var i = 0 / 2; i &lt; classes.length; i++) {
-    if (checkCondition(classes[i]) === undefined)
-      console.log('undefined');
-  }
-}
-
-export  $initHighlight;
-</code></pre>
-      <pre
-        class="code"
-      ><code class="code__container code_lang_html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque architecto eius nemo voluptatem assumenda, impedit adipisci beatae modi hic nostrum natus fugiat illo rem quia, consequuntur blanditiis tempora nihil. Voluptatibus.&lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
-      <h2 id="text-elements">Text level elements</h2>
-      <p>
-        Text level <abbr title="HyperText Markup Language">HTML</abbr> elements
-        may be used within other elements. They include:
-      </p>
-      <ul>
-        <li><a href="#">&lt;a href="#"&gt;link or anchor&lt;/a&gt;</a></li>
-        <li>
-          <abbr
-            title="Title attribute may be used to provide an expansion of the abbreviation"
-            >&lt;abbr&gt;</abbr
-          >
-          represents an abbreviation or acronym
-        </li>
-        <li><em>&lt;em&gt;</em> for emphasized text</li>
-        <li><strong>&lt;strong&gt;</strong> for strongly emphasized</li>
-        <li><dfn>&lt;dfn&gt;</dfn> for definition of a term</li>
-        <li><code>&lt;code&gt;</code> for code fragment</li>
-        <li><samp>&lt;samp&gt;</samp> for sample text</li>
-        <li><kbd>&lt;kbd&gt;</kbd> for keyboard input</li>
-        <li><var>&lt;var&gt;</var> for variable</li>
-        <li><cite>&lt;cite&gt;</cite> for short citation</li>
-        <li><i>&lt;i&gt;</i> for italics</li>
-        <li><b>&lt;b&gt;</b> for bold</li>
-        <li><u>&lt;u&gt;</u> for underlined text</li>
-        <li><s>&lt;s&gt;</s>for text that is no longer correct</li>
-        <li><big>&lt;big&gt;</big> for larger text</li>
-        <li><small>&lt;small&gt;</small> for smaller text</li>
-        <li><sup>&lt;sup&gt;</sup> for superscript</li>
-        <li><sub>&lt;sub&gt;</sub> for subscript</li>
-        <li><del>&lt;del&gt;</del> for visibly deleted</li>
-        <li><ins>&lt;ins&gt;</ins> for inserted content</li>
-        <li><dfn>&lt;dfn&gt;</dfn> for definitions</li>
-        <li><mark>&lt;mark&gt;</mark> for highlighted passages</li>
-        <li>
-          <hr />
-          &lt;hr&gt; for horizontal line
-        </li>
-      </ul>
-
-      <h2 id="table">Table</h2>
+    <section id="tables">
+      <h2>Tables</h2>
       <table>
         <thead>
           <tr>
@@ -446,13 +610,177 @@ export  $initHighlight;
           </tr>
         </tbody>
       </table>
-    </main>
+    </section>
 
-    <div class="footer">
-      <a href="https://github.com/zoxon/littera"
-        >Project source on github.com</a
-      >
-      <div class="footer__copyright">&copy;&nbsp;2018 Velichko Konstantin</div>
+    <section id="code">
+      <h2>Code</h2>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;title&gt;Sample document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque architecto eius nemo voluptatem assumenda, impedit adipisci beatae modi hic nostrum natus fugiat illo rem quia, consequuntur blanditiis tempora nihil. Voluptatibus.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <pre class="code"><code class="code__container code_lang_javascript">function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\bno\-highlight\b/) != -1)
+      return process(block, true, 0x0F) +
+            ` class=&quot;${cls}&quot;`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i &lt; classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+}
+
+export  $initHighlight;
+</code></pre>
+      <pre class="code"><code class="code__container code_lang_html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque architecto eius nemo voluptatem assumenda, impedit adipisci beatae modi hic nostrum natus fugiat illo rem quia, consequuntur blanditiis tempora nihil. Voluptatibus.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section id="quotes">
+      <h2>Quotes</h2>
+      <blockquote>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam.
+        </p>
+        <footer><cite>Someone famous</cite></footer>
+      </blockquote>
+    </section>
+
+    <section id="elements">
+      <h2>Text Elements</h2>
+      <p>
+        Text level <abbr title="HyperText Markup Language">HTML</abbr> elements
+        may be used within other elements. They include:
+      </p>
+      <ul>
+        <li><a href="#">&lt;a href="#"&gt;link or anchor&lt;/a&gt;</a></li>
+        <li>
+          <abbr title="Title attribute may be used to provide an expansion of the abbreviation">&lt;abbr&gt;</abbr>
+          represents an abbreviation or acronym
+        </li>
+        <li><em>&lt;em&gt;</em> for emphasized text</li>
+        <li><strong>&lt;strong&gt;</strong> for strongly emphasized</li>
+        <li><dfn>&lt;dfn&gt;</dfn> for definition of a term</li>
+        <li><code>&lt;code&gt;</code> for code fragment</li>
+        <li><samp>&lt;samp&gt;</samp> for sample text</li>
+        <li><kbd>&lt;kbd&gt;</kbd> for keyboard input</li>
+        <li><var>&lt;var&gt;</var> for variable</li>
+        <li><cite>&lt;cite&gt;</cite> for short citation</li>
+        <li><i>&lt;i&gt;</i> for italics</li>
+        <li><b>&lt;b&gt;</b> for bold</li>
+        <li><u>&lt;u&gt;</u> for underlined text</li>
+        <li><s>&lt;s&gt;</s>for text that is no longer correct</li>
+        <li><big>&lt;big&gt;</big> for larger text</li>
+        <li><small>&lt;small&gt;</small> for smaller text</li>
+        <li><sup>&lt;sup&gt;</sup> for superscript</li>
+        <li><sub>&lt;sub&gt;</sub> for subscript</li>
+        <li><del>&lt;del&gt;</del> for visibly deleted</li>
+        <li><ins>&lt;ins&gt;</ins> for inserted content</li>
+        <li><dfn>&lt;dfn&gt;</dfn> for definitions</li>
+        <li><mark>&lt;mark&gt;</mark> for highlighted passages</li>
+        <li>
+          <hr />
+          &lt;hr&gt; for horizontal line
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2018-<span id="year"></span> Velichko Konstantin</p>
+      <a href="https://github.com/zoxon/littera" target="_blank" rel="noopener">
+        GitHub Repository
+      </a>
     </div>
-  </body>
+  </footer>
+
+
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const toggle = document.querySelector('.theme-switcher');
+    const icon = toggle.querySelector('span');
+
+    // Theme switcher logic
+    const themeRadios = document.querySelectorAll('.theme-switcher input[type="radio"]');
+    const root = document.documentElement;
+
+    // Helper to set theme
+    function setTheme(theme) {
+      if (theme === 'auto') {
+      root.removeAttribute('data-theme');
+      } else {
+      root.setAttribute('data-theme', theme);
+      }
+    }
+
+    // Save theme to localStorage
+    function saveTheme(theme) {
+      localStorage.setItem('theme', theme);
+    }
+
+    // Load theme from localStorage or system
+    function loadTheme() {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark' || saved === 'light') {
+      setTheme(saved);
+      document.getElementById(saved + '-theme').checked = true;
+      } else {
+      setTheme('auto');
+      document.getElementById('system-theme').checked = true;
+      }
+    }
+
+    // Listen for radio changes
+    themeRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+      if (radio.checked) {
+        if (radio.id === 'system-theme') {
+        setTheme('auto');
+        saveTheme('auto');
+        } else if (radio.id === 'light-theme') {
+        setTheme('light');
+        saveTheme('light');
+        } else if (radio.id === 'dark-theme') {
+        setTheme('dark');
+        saveTheme('dark');
+        }
+      }
+      });
+    });
+
+    // Listen for system theme changes if auto
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!root.getAttribute('data-theme')) {
+      setTheme('auto');
+      }
+    });
+
+    // Initialize theme on load
+    loadTheme();
+  </script>
+</body>
+
 </html>

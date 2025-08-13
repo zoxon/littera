@@ -1,0 +1,308 @@
+/* ! Littera v4.0.0 | MIT License | github.com/zoxon/littera */
+:root {
+  --font-sans-serif: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
+  --font-monospace:
+    ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+    "DejaVu Sans Mono", monospace;
+  --font-primary: var(--font-sans-serif);
+  --font-secondary: var(--font-sans-serif);
+
+  /* Spacings */
+  --spacing-y-base: 1.5rem; /* 24px */
+
+  /* Line Height */
+  --line-height-base: 1.618;
+
+  /* Font Sizes */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-h1: 2.5rem; /* 40px */
+  --font-size-h2: 2rem; /* 32px */
+  --font-size-h3: 1.75rem; /* 28px */
+  --font-size-h4: 1.5rem; /* 24px */
+  --font-size-h5: 1.25rem; /* 20px */
+  --font-size-h6: 1rem; /* 16px */
+
+  /* Fill Colours */
+  --fill-primary: #fff;
+  --fill-secondary: #e9ecef;
+
+  /* Text Colours */
+  --text-primary: #212529;
+  --text-accent-primary: #4263eb;
+  --text-accent-secondary: #9c36b5;
+  --text-accent-tertiary: #3b5bdb;
+  --text-gray: #e9ecef;
+  --text-gray-dark: #adb5bd;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Fill Colours */
+    --fill-primary: hsl(210, 20%, 15%);
+    --fill-secondary: hsl(210, 20%, 20%);
+
+    /* Text Colours */
+    --text-primary: hsl(0, 0%, 90%);
+    --text-accent-primary: hsl(228, 81%, 70%);
+    --text-accent-secondary: hsl(288, 54%, 60%);
+    --text-accent-tertiary: hsl(228, 69%, 60%);
+    --text-gray: hsl(210, 16%, 20%);
+    --text-gray-dark: hsl(210, 11%, 30%);
+  }
+}
+html,
+body {
+  padding: 0;
+  height: 100%;
+}
+html {
+  font-family: var(--font-primary);
+}
+body {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--text-primary);
+  background-color: var(--fill-primary);
+  word-wrap: break-word;
+  text-rendering: optimizeLegibility;
+  -webkit-font-variant-ligatures: common-ligatures;
+  font-variant-ligatures: common-ligatures;
+  hanging-punctuation: first;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-secondary);
+  line-height: normal;
+  font-weight: bold;
+  margin: 1.25em 0 0.5em;
+}
+h1 {
+  font-size: var(--font-size-h1);
+}
+h2 {
+  font-size: var(--font-size-h2);
+}
+h3 {
+  font-size: var(--font-size-h3);
+}
+h4 {
+  font-size: var(--font-size-h4);
+}
+h5 {
+  font-size: var(--font-size-h5);
+}
+h6 {
+  font-size: var(--font-size-h6);
+}
+a {
+  color: var(--text-accent-primary);
+  text-decoration: underline;
+  -webkit-transition: 125ms color ease-out;
+  transition: 125ms color ease-out;
+  position: relative;
+
+  /* https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  -ms-word-break: break-all;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+}
+a:focus-visible {
+  outline: none;
+}
+a:focus-visible::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 0 2px var(--text-accent-primary);
+  box-shadow: 0 0 0 2px var(--text-accent-primary);
+  pointer-events: none;
+}
+a:visited {
+  color: var(--text-accent-secondary);
+}
+a:hover,
+a:focus,
+a:active {
+  color: var(--text-accent-tertiary);
+  text-decoration: none;
+}
+ol,
+ul {
+  padding-left: 2em;
+}
+@media (max-width: 382px) {
+  ol,
+  ul {
+    padding-left: 0;
+    list-style-position: inside;
+  }
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-bottom: 1em;
+  padding-left: 1em;
+  margin-left: 0;
+}
+p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+i,
+em {
+  font-style: italic;
+}
+b,
+strong {
+  font-weight: bold;
+}
+q {
+  font-style: italic;
+}
+/* https://en.wikipedia.org/wiki/Quotation_mark#Summary_table */
+:lang(ru) > q {
+  quotes: "«" "»" "„" "“";
+}
+:lang(en) > q {
+  quotes: "‘" "’" "“" "”";
+}
+small,
+sub,
+sup {
+  font-size: 75%;
+}
+img {
+  max-width: 100%;
+}
+mark,
+kbd,
+code {
+  display: inline-block;
+  padding: 0 4px;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+kbd {
+  background-color: var(--text-gray);
+  font-family: var(--font-monospace);
+}
+mark {
+  background-color: var(--text-accent-primary);
+  color: #fff;
+}
+hr {
+  display: block;
+  margin: 1em 0;
+  padding: 0;
+  height: 1px;
+  border: none;
+  border-top: 1px solid var(--text-gray-dark);
+}
+figure {
+  margin: var(--spacing-y-base) 0;
+}
+figure img {
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  line-height: 1;
+}
+figure figcaption {
+  margin-top: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 80%;
+}
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+blockquote {
+  font-style: italic;
+  margin: 1em;
+  padding-left: 1em;
+  border-left: 3px solid var(--text-gray);
+}
+blockquote p:last-child,
+blockquote ul:last-child,
+blockquote ol:last-child {
+  margin-bottom: 0;
+}
+blockquote p:first-child,
+blockquote ul:first-child,
+blockquote ol:first-child {
+  margin-top: 0;
+}
+blockquote footer,
+blockquote small {
+  display: block;
+  font-size: 80%;
+}
+blockquote footer:before,
+blockquote small:before {
+  content: "\2014 \00A0";
+}
+pre,
+code {
+  overflow: hidden;
+  background-color: var(--text-gray);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  font-family: var(--font-monospace);
+}
+pre {
+  display: block;
+  padding: 1em;
+  border-radius: 2px;
+}
+code {
+  font-size: 0.9em;
+  padding: 0 0.5em;
+}
+table {
+  text-align: justify;
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-y-base) 0;
+}
+td,
+th {
+  padding: 0.5rem 0;
+}
+thead td,
+thead th {
+  border-bottom: 1px solid var(--text-gray-dark);
+}
+tfoot td,
+tfoot th {
+  border-top: 1px solid var(--text-gray-dark);
+}
+tbody td,
+tbody th {
+  border-top: 1px solid var(--text-gray-dark);
+}
+tbody tr {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--text-gray-dark);
+}
+tbody tr:last-child td,
+tbody tr:last-child th {
+  border-bottom-width: 0;
+}

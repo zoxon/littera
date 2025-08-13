@@ -5,7 +5,7 @@ code {
   white-space: pre-wrap;
   word-wrap: break-word;
   tab-size: 4;
-  font-family: var(--font-mono);
+  font-family: var(--font-monospace);
 }
 
 pre {

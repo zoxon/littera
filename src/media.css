@@ -1,0 +1,22 @@
+figure {
+  margin: var(--spacing-y-base) 0;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    line-height: 1;
+  }
+
+  figcaption {
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 80%;
+  }
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}

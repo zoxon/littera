@@ -2,10 +2,43 @@ table {
   text-align: justify;
   width: 100%;
   border-collapse: collapse;
+  margin: var(--spacing-y-base) 0;
 }
 
 td,
 th {
-  padding: 0.5em;
-  border-bottom: 1px solid var(--text-gray);
+  padding: 0.5rem 0;
+}
+
+thead {
+  td,
+  th {
+    border-bottom: 1px solid var(--text-gray-dark);
+  }
+}
+
+tfoot {
+  td,
+  th {
+    border-top: 1px solid var(--text-gray-dark);
+  }
+}
+
+tbody {
+  td,
+  th {
+    border-top: 1px solid var(--text-gray-dark);
+  }
+
+  tr {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--text-gray-dark);
+
+    &:last-child {
+      td,
+      th {
+        border-bottom-width: 0;
+      }
+    }
+  }
 }

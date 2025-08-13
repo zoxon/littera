@@ -23,14 +23,12 @@
 ## Quickstart
 
 ```html
-<link href="littera/dest/root.css" rel="stylesheet" />
-<link href="littera/dest/littera.css" rel="stylesheet" />
+<link href="./littera.css" rel="stylesheet" />
 
 or
 
 <style>
-  @import url("littera/dest/root.css");
-  @import url("littera/dest/littera.css");
+  @import url("./littera.css");
 </style>
 ```
 
@@ -39,14 +37,21 @@ You can customize fonts and colors using following custom properties
 ### Font
 
 - `--font-primary` - font family for all text
-- `--font-mono` - mono font family
-- `--font-size-md` - base font size
+- `--font-monospace` - mono font family
+- `--font-size-base` - base font size
 - `--line-height` - base line height
-- `--font-accent` - headings font
+- `--font-secondary` - headings font
+- `--font-size-h1` - `<h1>` font size
+- `--font-size-h2` - `<h2>` font size
+- `--font-size-h3` - `<h3>` font size
+- `--font-size-h4` - `<h4>` font size
+- `--font-size-h5` - `<h5>` font size
+- `--font-size-h6` - `<h6>` font size
 
 ### Fill
 
 - `--fill-primary` - base background color
+- `--fill-secondary` - secondary background color
 
 ### Text colors
 

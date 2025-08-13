@@ -46,8 +46,8 @@ code {
 }
 
 kbd {
-  background-color: var(--text-primary);
-  color: #fff;
+  background-color: var(--text-gray);
+  font-family: var(--font-monospace);
 }
 
 mark {

@@ -9,10 +9,12 @@ html {
 }
 
 body {
-  font-size: var(--font-size-md);
-  line-height: 1.618;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
   color: var(--text-primary);
   background-color: var(--fill-primary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscal;
+  word-wrap: break-word;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: common-ligatures;
+  hanging-punctuation: first;
 }

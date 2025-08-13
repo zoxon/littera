@@ -4,42 +4,32 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-accent);
+  font-family: var(--font-secondary);
   line-height: normal;
   font-weight: bold;
-  margin: 1em 0 0.5em;
-
-  /* https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
-  word-wrap: break-word;
-  word-break: break-word;
-  hyphens: auto;
-  overflow-wrap: break-word;
-  -ms-word-break: break-all;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
+  margin: 1.25em 0 0.5em;
 }
 
 h1 {
-  font-size: 2.35em;
+  font-size: var(--font-size-h1);
 }
 
 h2 {
-  font-size: 2em;
+  font-size: var(--font-size-h2);
 }
 
 h3 {
-  font-size: 1.75em;
+  font-size: var(--font-size-h3);
 }
 
 h4 {
-  font-size: 1.5em;
+  font-size: var(--font-size-h4);
 }
 
 h5 {
-  font-size: 1.25em;
+  font-size: var(--font-size-h5);
 }
 
 h6 {
-  font-size: 1em;
+  font-size: var(--font-size-h6);
 }
