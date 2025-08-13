@@ -12,55 +12,104 @@
 
 ## Demo
 
-[zoxon.github.io/littera](http://zoxon.github.io/littera/)
+[Live Demo](http://zoxon.github.io/littera/) | [Interactive Playground](#)
 
-## Core features
+## 🚀 Core Features
 
-- Work with [normalize.css](https://github.com/necolas/normalize.css)
-- ~2593 bytes (gzipped size: 991 bytes)
-- Vanilla CSS with minimal [postcss](https://postcss.org/) plugins
+- **Minimal & Lightweight**
+  - Original size: ~5.8KB
+  - Gzipped size: ~1.9KB
+  - Zero dependencies
+  - Vanilla CSS (no JavaScript)
 
-## Quickstart
+- **Smart Defaults**
+  - Works seamlessly with [normalize.css](https://github.com/necolas/normalize.css)
+  - Beautiful typographic scale
+  - Responsive design out of the box
+  - System font stack for optimal performance
+
+- **Modern CSS**
+  - CSS Custom Properties for easy customization
+  - Dark mode support via `prefers-color-scheme`
+  - Logical properties for RTL/LTR support
+  - Micro-interactions and transitions
+
+## ⚡ Quickstart
+
+Just include the CSS file in your project and override the default custom properties:
 
 ```html
 <link href="./littera.css" rel="stylesheet" />
 
-or
+<!-- or -->
 
 <style>
   @import url("./littera.css");
 </style>
 ```
 
-You can customize fonts and colors using following custom properties
+## Customization
 
-### Font
+### Typography
 
-- `--font-primary` - font family for all text
-- `--font-monospace` - mono font family
-- `--font-size-base` - base font size
-- `--line-height` - base line height
-- `--font-secondary` - headings font
-- `--font-size-h1` - `<h1>` font size
-- `--font-size-h2` - `<h2>` font size
-- `--font-size-h3` - `<h3>` font size
-- `--font-size-h4` - `<h4>` font size
-- `--font-size-h5` - `<h5>` font size
-- `--font-size-h6` - `<h6>` font size
+```css
+:root {
+  /* Font Families */
+  --font-primary: "Helvetica Neue", sans-serif;
+  --font-secondary: Georgia, serif;
+  --font-monospace: "Courier New", monospace;
 
-### Fill
+  /* Font Sizes */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-h1: 2.5rem; /* 40px */
+  --font-size-h2: 2rem; /* 32px */
+  --font-size-h3: 1.75rem; /* 28px */
+  --font-size-h4: 1.5rem; /* 24px */
+  --font-size-h5: 1.25rem; /* 20px */
+  --font-size-h6: 1rem; /* 16px */
 
-- `--fill-primary` - base background color
-- `--fill-secondary` - secondary background color
+  /* Line Height */
+  --line-height-base: 1.618; /* Golden ratio */
+}
+```
 
-### Text colors
+### Color Scheme
 
-- `--text-primary` - all text font color
-- `--text-accent-primary` - font color for accent elements (like links, buttons etc.)
-- `--text-accent-secondary` - secondary font color for accent elements
-- `--text-accent-tertiary` - tertiary font color for accent elements
-- `--text-gray` - light grey color
-- `--text-gray-dark` - dark grey color
+```css
+:root {
+  /* Background Colors */
+  --fill-primary: #ffffff;
+  --fill-secondary: #f8f9fa;
+
+  /* Text Colors */
+  --text-primary: #212529;
+  --text-accent-primary: #4263eb;
+  --text-accent-secondary: #9c36b5;
+  --text-accent-tertiary: #3b5bdb;
+  --text-gray: #e9ecef;
+  --text-gray-dark: #adb5bd;
+}
+```
+
+## 📦 What's Included
+
+- Complete typographic system
+  - Headings (h1-h6)
+  - Paragraphs and text elements
+  - Lists (ordered, unordered, description)
+  - Blockquotes and citations
+- Code formatting
+  - Syntax-highlighted code blocks
+  - Inline code snippets
+  - Pre-formatted text
+- Interactive elements
+  - Links with hover/focus states
+  - Keyboard navigation support
+  - Accessible focus indicators
+- Layout components
+  - Responsive tables
+  - Figures and captions
+  - Horizontal rules
 
 ## License
 
