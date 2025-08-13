@@ -12,7 +12,7 @@
 
 ## Demo
 
-[Live Demo](http://zoxon.github.io/littera/) | [Interactive Playground](#)
+[Live Demo](http://zoxon.github.io/littera/)
 
 ## 🚀 Core Features
 
