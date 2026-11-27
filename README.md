@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./logo.svg" width="92" height="170" alt="Littera" />
+  <img src="./logo.svg" width="120" height="120" alt="Littera" />
 </p>
 
 <h1 align="center">
