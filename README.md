@@ -1,13 +1,8 @@
 <p align="center">
-  <img src="./logo.svg" width="120" height="120" alt="Littera" />
-</p>
-
-<h1 align="center">
-  Littera
-</h1>
-
-<p align="center">
-  <em>Nano typographic framework</em>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="brand/readme-header-dark.svg">
+    <img src="brand/readme-header-light.svg" width="520" alt="Littera: nano typographic framework">
+  </picture>
 </p>
 
 ## Demo

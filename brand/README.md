@@ -67,16 +67,16 @@ This is a redesign. The owner likes the old logo and asked to refine it, not to 
 | A drop cap, a tt ligature, the word in a serif | A different idea. The ligature reads as a hash sign. |
 | Other fonts (Libre Baskerville, Source Serif, Merriweather, DM Serif, Playfair, Roboto Slab) | Garamond was chosen for its warm, bookish character. Playfair and DM Serif have hairlines thinner than the old logo. |
 
-## Move the project to the new mark
+## Move to the new mark (done)
 
-The old files are kept in `previous/`. The project files that use the old mark are not changed yet:
+The project uses the new mark. The old files are kept in `previous/`:
 
-| File | Now | After the move |
-|---|---|---|
-| `logo.svg` | The old block, 92 x 118. | The new square (`brand/svg/symbol-ink.svg`), same path. |
-| `favicon.ico` | Two raster sizes, 16 and 32 px. | `brand/favicon.ico` (16, 32 and 48 px). |
-| `README.md` | `<img src="./logo.svg" width="92" height="170">`, a tall logo. | The image of a square needs `width` and `height` of the same size, for example 120. |
-| `index.html` | Links `favicon.ico`. | Add `favicon.svg`, which follows the browser theme. |
+| File | Change |
+|---|---|
+| `logo.svg` | Replaced by the new square (`brand/svg/symbol-ink.svg`). |
+| `favicon.ico` | Replaced by `brand/favicon.ico` (16, 32 and 48 px). |
+| `README.md` | The logo image is 120 x 120 px, a square. |
+| `index.html` | Links `brand/svg/favicon.svg`, which follows the browser theme, before `favicon.ico`. |
 
 ## Open checks
 
