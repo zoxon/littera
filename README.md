@@ -1,9 +1,7 @@
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="brand/readme-header-dark.svg">
-    <img src="brand/readme-header-light.svg" width="520" alt="Littera: nano typographic framework">
-  </picture>
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="brand/readme-header-dark.svg">
+  <img src="brand/readme-header-light.svg" width="520" alt="Littera: nano typographic framework">
+</picture>
 
 ## Demo
 
