@@ -52,9 +52,12 @@ write('symbol-pixel-pale.svg', svg(f'<title>Littera</title>{mark(PIXEL, pale, CR
 # Favicon: the mark is a tile already, so it has no extra tile. It follows the browser theme. The rules use #fav so they stay inside the file.
 css = f'#fav path{{fill:{ink}}}@media (prefers-color-scheme:dark){{#fav path{{fill:{pale}}}}}'
 write('favicon.svg', svg(f'<style>{css}</style><title>Littera</title>{mark(PIXEL, ink, CRISP)}', 'id="fav" ', '0 0 16 16'))
-# App icon: a full square (the platform rounds the corners). The rounded tile is for the README header only.
+# App icon: a full square (the platform rounds the corners). The letter alone in pale on the tile, with no second container: the lines of the L
+# have the weight of the other zoxon logos. The size and the centre are the result of `optical_fit.mjs` (optical size 0.39 of the tile).
+# The rounded tile is for the README header only.
+LETTER = MAIN[MAIN.index('M136.9'):]                  # the outline of the L: the hole of the block
 tile = (f'<title>Littera</title><rect{{R}} width="200" height="200" fill="{ground}"/>'
-        f'<g transform="translate(38 38) scale(.62)">{mark(MAIN, pale)}</g>')
+        f'<g transform="translate(100 100) scale(0.82) translate(-100 -98.13)"><path fill="{pale}" d="{LETTER}"/></g>')
 write('app-icon.svg', svg(tile.replace('{R}', '')))
 write('app-icon-rounded.svg', svg(tile.replace('{R}', ' rx="44"')))
 print('wrote the kit to', OUT)

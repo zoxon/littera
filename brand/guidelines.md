@@ -31,8 +31,8 @@ The mark has one colour. The letter is a hole: do not fill it with another colou
 | `svg/symbol-white.svg`, `svg/symbol-black.svg` | One colour: photos, print. |
 | `svg/symbol-pixel-ink.svg`, `svg/symbol-pixel-pale.svg` | Exactly 16, 32 or 48 px. Drawn on a 16 x 16 pixel grid: the edges are sharp. |
 | `svg/favicon.svg`, `favicon.ico` | Browser tab. The mark is a tile already, so it has no extra tile. The SVG follows the browser theme. |
-| `svg/app-icon.svg` | Full square tile. The platform rounds the corners. |
-| `svg/app-icon-rounded.svg` | Tile with rounded corners, for the README header only. |
+| `svg/app-icon.svg` | Full square tile with the letter L alone in pale (no second container). The platform rounds the corners. |
+| `svg/app-icon-rounded.svg` | The same tile with rounded corners, for the README header only. |
 | `png/avatar-512.png` | GitHub avatar. |
 | `png/apple-touch-icon-180.png` | Apple touch icon. It has a solid ground on purpose. |
 | `previous/` | The logo before the redesign. Do not use it. |

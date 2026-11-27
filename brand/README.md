@@ -56,6 +56,9 @@ This is a redesign. The owner likes the old logo and asked to refine it, not to 
   and the margin above it is 44 percent of the free height.
 - A pixel cut of the letter for 16, 32 and 48 px: the hairlines of the main cut are less than a pixel at these sizes.
 
+**App icon, avatar and README header (updated 2026-11-27):** the pale block with the cut-out L stood inside a second, dark tile. A check of the line weight against the other zoxon logos
+flagged the block as the heaviest mass. The tile now carries the letter L alone, in pale, with no second container. Its lines have the weight of the other logos. The symbol (the block with the cut-out L) is the same.
+
 **Colour:** Ink (`#212529` on light, `#e6e6e6` on dark), the token `--text-primary` of Littera. Blue, purple and a printer's red were offered. Ink keeps the old look.
 
 **Not chosen, and why:**
